@@ -26,9 +26,9 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 // const { parseArgs } = require("util");
 
- const MONGO_URl = "mongodb://127.0.0.1:27017/Wanderlust";
+ // const MONGO_URl = "mongodb://127.0.0.1:27017/Wanderlust";
 
-//const MONGO_URl = process.env.ATLASDB_URl;
+const MONGO_URl = process.env.ATLASDB_URl;
 // Response from DataBase
 main().then(() => {
     console.log("Connected to DataBase");
