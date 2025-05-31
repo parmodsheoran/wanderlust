@@ -64,7 +64,9 @@ store.on("error",()=>{
 })
 
 const sessionOption = {
-    store,
+    store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URL  // Ensure this env variable is set
+  }),
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
