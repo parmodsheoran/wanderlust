@@ -4,7 +4,6 @@ if (process.env.NODE_ENV != "production") {
 console.log(process.env.CLOUD_NAME);
 
 const express = require("express");
-const MongoStore = require('connect-mongo');
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
