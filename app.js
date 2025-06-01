@@ -26,7 +26,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 // const { parseArgs } = require("util");
 
- // const MONGO_URl = "mongodb://127.0.0.1:27017/Wanderlust";
+// const MONGO_URl = "mongodb://127.0.0.1:27017/Wanderlust";
 
 const MONGO_URl = process.env.ATLASDB_URl;
 // Response from DataBase
@@ -64,9 +64,7 @@ store.on("error",()=>{
 })
 
 const sessionOption = {
-    store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URL  // Ensure this env variable is set
-  }),
+    store,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
