@@ -35,7 +35,7 @@ module.exports.showListingCategory = async (req, res) => {
 };
 
 
-module.exports.createListing = async (req, res) => {
+module.exports.createListing = async (req, res, next) => {
     let url = req.file.path;
     let filename = req.file.filename;
     let coordinates;
@@ -44,17 +44,18 @@ module.exports.createListing = async (req, res) => {
     } catch (err) {
         return next(err);
     }
-    console.log(coordinates);
+
     const newListing = new Listing(req.body.listing);
     newListing.image = { filename, url };
     newListing.owner = req.user._id;
     newListing.geometry.type = 'Point';
     newListing.geometry.coordinates = coordinates;
-    // console.log(newListing);
-    newListing.save();
+
+    await newListing.save();
     req.flash("success", "New Listing created successfuly!");
     res.redirect("/listings");
 };
+
 
 
 module.exports.editListing = async (req, res) => {
