@@ -28,7 +28,7 @@ const User = require("./models/user.js");
 
 // const MONGO_URl = "mongodb://127.0.0.1:27017/Wanderlust";
 
-const MONGO_URl = process.env.ATLASDB_URl;
+const MONGO_URl = process.env.ATLASDB_URL;
 // Response from DataBase
 main().then(() => {
     console.log("Connected to DataBase");
